@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20141120071436) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "ministry"
-    t.string   "class"
+    t.string   "year"
     t.string   "gender"
   end
 
