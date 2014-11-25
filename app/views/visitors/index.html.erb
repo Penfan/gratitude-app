@@ -1,4 +1,11 @@
-<h3>Hi</h3>
-<%= @thanks.each do |thank| %>
-  <p> Text: <%= thank.text %>
+<% if user_signed_in? %>
+  <%= simple_form_for @thank do |t| %>
+    <%= t.input :text, placeholder: 'many things', label: 'I am thankful for ' %>
+    <%= t.button :submit %>
+  <% end %>
+<% end %>
+
+<h3> Newest Thanks </h3>
+<% @thanks.each do |thank| %>
+  <p> <%=User.find(thank.user_id).name %> is thankful for <%= thank.text %></p>
 <% end %>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <%= simple_form_for @thank do |t| %>
-      <%= t.input :text %>
+      <%= t.input :text, placeholder: 'many things', label: 'I am thankful for ' %>
       <%= t.button :submit %>
     <% end %>
   </div>
