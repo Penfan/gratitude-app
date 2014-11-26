@@ -7,6 +7,7 @@
 <% end %>
 
 <h3> Newest Thanks </h3>
+<%= will_paginate @thanks %>
 <% @thanks.reverse_each do |thank| %>
   <p> <%=User.find(thank.user_id).name %> is thankful for <%= thank.text %></p>
 <% end %>

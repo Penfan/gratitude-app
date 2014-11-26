@@ -3,6 +3,8 @@
 <p>Email: <%= @user.email if @user.email %></p>
 
 <h3> My Thanks </h3>
-<% @thanks.reverse_each do |thank| %>
+<%= will_paginate @thanks %>
+
+<% @thanks.each do |thank| %>
   <p> <%=current_user.name %> is thankful for <%= thank.text %></p>
 <% end %>
