@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @thanks = Thank.where(user_id: current_user).reverse
     unless @user == current_user
       redirect_to :back, :alert => "Access denied."
     end
