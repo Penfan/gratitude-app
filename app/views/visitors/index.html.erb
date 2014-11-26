@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <%= simple_form_for @thank do |t| %>
     <%= t.input :text, placeholder: 'many things', label: 'I am thankful for ' %>
+    <%= t.hidden_field :user_id %> 
     <%= t.button :submit %>
   <% end %>
 <% end %>

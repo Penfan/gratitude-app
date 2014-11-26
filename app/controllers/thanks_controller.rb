@@ -6,6 +6,7 @@ class ThanksController < ApplicationController
 
   def create
     @thank = Thank.new thank_params
+    @thank.user_id = current_user.id 
     if @thank.save
       flash[:success] = 'Created!'
       redirect_to root_path
