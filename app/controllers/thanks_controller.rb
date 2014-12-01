@@ -6,10 +6,16 @@ class ThanksController < ApplicationController
 
   def create
     @thank = Thank.new thank_params
-    @thank.user_id = current_user.id 
+    @thank.user_id = current_user.id
     if @thank.save
-      flash[:success] = 'Created!'
-      redirect_to root_path
+      @group = Group.new(:users)
+      if @group.save
+        @group.thank_id = @thank
+        flash[:success] = 'Created!'
+        redirect_to root_path
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
@@ -20,6 +26,6 @@ class ThanksController < ApplicationController
   end
 
   def thank_params
-    params.require(:thank).permit(:text, :user_id)
+    params.require(:thank).permit(:text, :user_id, :all_vis, :groups, :users)
   end
 end

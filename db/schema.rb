@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141201072355) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "allVis"
+    t.boolean  "all_vis"
   end
 
   add_index "thanks", ["user_id"], name: "index_thanks_on_user_id", using: :btree

@@ -1,11 +1,15 @@
 <% if user_signed_in? %>
   <%= simple_form_for @thank do |t| %>
     <%= t.input :text, placeholder: 'many things', label: 'I am thankful for ' %>
+    <% if not @user.groups.none? %>
+      <%= t.association :groups, label: 'Groups to share:', as: :select %>
+    <% end %>
+    <%= t.association :users, label: 'People to share:', as: :select %>
+    <%= t.input :all_vis, label: 'Globally visable?' %>
     <%= t.hidden_field :user_id %> 
     <%= t.button :submit %>
   <% end %>
 <% end %>
-
 <h3> Newest Thanks </h3>
 <%= will_paginate @thanks %>
 <% @thanks.each do |thank| %>
