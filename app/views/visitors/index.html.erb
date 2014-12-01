@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <%= simple_form_for @thank do |t| %>
     <%= t.input :text, placeholder: 'many things', label: 'I am thankful for ' %>
-    <% if not @user.groups.none? %>
+    <% if not @usr_groups.none? %>
       <%= t.association :groups, label: 'Groups to share:', as: :select %>
     <% end %>
     <%= t.association :users, label: 'People to share:', as: :select %>

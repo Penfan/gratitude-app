@@ -8,7 +8,7 @@ class ThanksController < ApplicationController
     @thank = Thank.new thank_params
     @thank.user_id = current_user.id
     if @thank.save
-      @group = Group.new(:users)
+      @group = Group.new(:users => params[:thank][:user_ids].keep_if { |u| u != ""}.map {|u| User.find(u)}, :name => "Temp")
       if @group.save
         @group.thank_id = @thank
         flash[:success] = 'Created!'
@@ -26,6 +26,6 @@ class ThanksController < ApplicationController
   end
 
   def thank_params
-    params.require(:thank).permit(:text, :user_id, :all_vis, :groups, :users)
+    params.require(:thank).permit(:text, :user_id, :all_vis, :groups, :users, :groupname)
   end
 end
