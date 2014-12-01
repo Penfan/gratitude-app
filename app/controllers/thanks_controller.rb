@@ -9,8 +9,8 @@ class ThanksController < ApplicationController
     @thank.user_id = current_user.id
     if @thank.save
       @group = Group.new(:users => params[:thank][:user_ids].keep_if { |u| u != ""}.map {|u| User.find(u)}, :name => "Temp")
+      @group.thank_id = @thank.id
       if @group.save
-        @group.thank_id = @thank
         flash[:success] = 'Created!'
         redirect_to root_path
       else

@@ -6,8 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :thanks
   has_many :comments
-
   has_and_belongs_to_many :groups
-  has_many :readable, through: :groups, class_name: "Thank"
-
 end
