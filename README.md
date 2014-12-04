@@ -1,25 +1,27 @@
 Title: Gratitude App
+======================================
 Team Members: Jessica Chang, William Huang, Matthew Leong
-Demo Link: FILL IN HERE
+Demo Link: http://gratitudeapp.herokuapp.com
 
-Idea: An application where users can write and share gratitude-laden posts with their family, friends, etc.
+### Idea
+An application where users can write and share gratitude-laden posts with their family, friends, etc.
 
-Models and Description:
-User
+### Models and Description:
+- User
 has name, email, other misc fields, and many thanks and groups
 
-Thanks
+- Thanks
 has text and belongs to a User
 
-Groups
+- Groups
 contains its own name and has a many-to-many relationship with Users
 
-Features:
-Users can log in
-Users can write Thanks
-Users can share Thanks with specific people or Groups
+### Features:
+- Users can log in
+- Users can write Thanks
+- Users can share Thanks with specific people or Groups
 
-Division of Labor:
+### Division of Labor:
 Jessica: UI, controller testing
 Will: models, controllers
 Matt: idea, scaffold, screencast, model testing
