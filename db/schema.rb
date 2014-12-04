@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20141204061145) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "ministry"
-    t.string   "year"
+    t.integer  "year"
     t.string   "gender"
     t.string   "handle"
   end
