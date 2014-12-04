@@ -3,5 +3,5 @@ class Thank < ActiveRecord::Base
     has_many :groups
     has_many :users, through: :groups
     validates :text, presence: true
-    self.per_page = 10
+    self.per_page = 5
 end
