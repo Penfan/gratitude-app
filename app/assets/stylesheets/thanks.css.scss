@@ -1,3 +1,59 @@
 // Place all the styles related to the Thanks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+	font-family: 'ProximaNova-Light';
+	src: url('../fonts/ProximaNova-Light.otf');
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url('../fonts/ProximaNova-Regular.otf');
+}
+
+$regular-font-stack: 'Proxima Nova', 'Helvetica Neue', Helvetica, sans-serif;
+$light-gray: #F5F8F9;
+$white: #FFFFFF;
+
+html, body, main {
+	font-family: $regular-font-stack;
+	background-color: $white;
+}
+
+#thank_text {
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	border: 0px;
+	background-color: $light-gray;
+}
+
+input:focus {
+	outline: none;
+}
+
+.btn {
+	text-transform: uppercase;
+	font-size: 11px !important;
+	letter-spacing: 1px;
+	border-radius: 2px !important;
+}
+
+.thank_text {
+	margin-top: 30px;
+}
+
+#thank_all_vis {
+	top: -36px;
+}
+
+.thank_all_vis {
+	margin-top: 10px;
+	position: absolute;
+	left: 33px;
+}
+
+#new_thanks {
+	margin-top:100px;
+}

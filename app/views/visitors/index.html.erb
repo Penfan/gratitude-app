@@ -1,17 +1,71 @@
-<% if user_signed_in? %>
-  <%= simple_form_for @thank do |t| %>
-    <%= t.input :text, placeholder: 'many things', label: 'I am thankful for ' %>
-    <% if not @usr_groups.none? %>
-      <%= t.association :groups, label: 'Groups to share:', as: :select %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>User</h3>
+      <p>Name: <%= @user.name if @user.name %></p>
+      <p>Email: <%= @user.email if @user.email %></p>
+      <p>Ministry: <%= @user.ministry if @user.ministry %></p>
+      <p>Class: <%= @user.year if @user.year %></p>
+    </div>
+    <div class="col-md-8">
+    <% if user_signed_in? %>
+      <%= simple_form_for @thank do |t| %>
+        <%= t.input :text, placeholder: 'many things', label: 'I am thankful for ' %>
+        <%= t.input :all_vis, label: 'Globally visible?' %>
+        <!-- Button trigger modal -->
+        <%= t.hidden_field :user_id %> 
+        <%= t.button :submit, id: "create_thanks", class: "btn-success btn-lg pull-right" %>
+        <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#groups">
+          Share with groups
+        </button>
+
+        <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#people">
+          Share with people
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="groups" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <% if not @usr_groups.none? %>
+                  <%= t.association :groups, label: 'Groups to share:', as: :select %>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="people" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                 <%= t.association :users, label: 'People to share:', as: :select %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+
+      <% end %>
     <% end %>
-    <%= t.association :users, label: 'People to share:', as: :select %>
-    <%= t.input :all_vis, label: 'Globally visable?' %>
-    <%= t.hidden_field :user_id %> 
-    <%= t.button :submit %>
-  <% end %>
-<% end %>
-<h3> Newest Thanks </h3>
-<%= will_paginate @thanks %>
-<% @thanks.each do |thank| %>
-  <p> <%=User.find(thank.user_id).name %> is thankful for <%= thank.text %></p>
-<% end %>
+
+      <div id="new_thanks">
+        <% @thanks.each do |thank| %>
+          <p> <%=User.find(thank.user_id).name %> is thankful for <%= thank.text %></p>
+        <% end %>
+        <%= will_paginate @thanks %>
+      </div>
+   </div>
+  </div>
+</div>
+
+
