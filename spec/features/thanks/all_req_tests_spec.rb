@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'Visitors page' do
 
+
+
   setup do
     @user = User.create(:name => "Test", :email => "test@test.com", :password => "123421342134", :ministry => %W(Koinonia A2F Klesis ThirdSpace).shuffle[0], :year => rand(1980..2020))
     sign_in @user
@@ -29,11 +31,9 @@ feature 'Visitors page' do
     expect{@user.destroy}.to change{User.count}.by(-1)
   end
 
-  scenario "should create thanks" do
-    @thank = Thank.new(:text => "FOOD AND STUFF")
-    expect{@thank.save}.to change{Thank.count}.by(1)
+  scenario '#create' do
+    @thank = Thank.create(:text => "Message")
+    @thank.should be_an_instance_of Thank
   end
-
-  
 
 end
