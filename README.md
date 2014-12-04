@@ -8,12 +8,12 @@ An application where users can write and share gratitude-laden posts with their 
 
 ### Models and Description
 - User
-has name, email, other misc fields, and many thanks and groups
+has name, email, other various fields, and many thanks and groups
 
 - Thanks
-has text and belongs to a User
+have text and belong to a User
 
-- Groups
+- Group
 contains its own name and has a many-to-many relationship with Users
 
 ### Features
@@ -22,6 +22,6 @@ contains its own name and has a many-to-many relationship with Users
 - Users can share Thanks with specific people or Groups
 
 ### Division of Labor:
-- Jessica: UI, controller testing
+- Jessica: UI, controller tests
 - Will: models, controllers
-- Matt: idea, scaffold, screencast, model testing
+- Matt: idea, scaffold, screencast, model tests
