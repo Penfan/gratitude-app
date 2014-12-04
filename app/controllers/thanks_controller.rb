@@ -17,7 +17,8 @@ class ThanksController < ApplicationController
         render 'new'
       end
     else
-      render 'new'
+      flash[:error] = 'Please enter a thanks!'
+      redirect_to root_path
     end
   end
 
