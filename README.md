@@ -4,7 +4,7 @@ Gratitude App
 - Demo Link: http://gratitudeapp.herokuapp.com
 
 ### Idea
-An application where users can write and share gratitude-laden posts with their family, friends, etc.
+An application where users can write and share posts of thanksgiving with their family, friends, etc.
 
 ### Models and Description
 - User
