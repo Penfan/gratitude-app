@@ -1,6 +1,6 @@
 Title: Gratitude App
 Team Members: Jessica Chang, William Huang, Matthew Leong
-Demo Link: FILL IN HERE
+Demo Link: http://gratitudeapp.herokuapp.com/
 
 Idea: An application where users can write and share gratitude-laden posts with their family, friends, etc.
 
