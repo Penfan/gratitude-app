@@ -5,6 +5,8 @@
       <h3>User</h3>
       <p>Name: <%= @user.name if @user.name %></p>
       <p>Email: <%= @user.email if @user.email %></p>
+      <p>Ministry: <%= @user.ministry if @user.ministry %></p>
+      <p>Class: <%= @user.year if @user.year %></p>
     </div>
     <div class="col-md-8">
     <% if user_signed_in? %>

@@ -14,10 +14,11 @@ class ThanksController < ApplicationController
         flash[:success] = 'Created!'
         redirect_to root_path
       else
-        render 'new'
+        redirect_to root_path
       end
     else
-      render 'new'
+      flash[:error] = 'Please enter a thanks!'
+      redirect_to root_path
     end
   end
 
