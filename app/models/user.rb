@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
   has_many :comments
   has_and_belongs_to_many :groups
 
-  def visible_thanks
+  def visible_thanks(params)
     Group.joins(:user)
     temp = (Thank.where("all_vis = ?", true) + Thank.where("user_id = ?", self)).map(&:id) + self.groups.pluck(:thank_id)
-    thanks = Thank.where('id in (?)',temp).uniq.order(created_at: :desc).page(params[:page])
+    thanks = Thank.where('id in (?)',temp).uniq.order(created_at: :desc).page(params)
     thanks
   end
 

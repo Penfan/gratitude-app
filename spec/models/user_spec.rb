@@ -28,6 +28,11 @@ describe User do
       expect(handle).to eq('whaleh')
     end
 
+    it 'handle should use only first name when last name is empty' do
+      handle = User.next_unique_handle("Whale")
+      expect(handle).to eq('whale')
+    end
+
   end
 
 end

@@ -5,8 +5,8 @@ class VisitorsController < ApplicationController
 
     # @thanks = Thank.connection.select_all('SELECT * FROM thank WHERE (@user IN thank.users)').order(created_at: :desc).page(params[:page])
     # @thanks = Thank.where("all_vis = ?", true).merge(Thank.joins(:users).where(users: @user))
-
-    @thanks = @user.visible_thanks
+    @usr_groups = @user.in_which_groups
+    @thanks = @user.visible_thanks(params[:page])
 
     # @thanks = @thanks.uniq.order(created_at: :desc).page(params[:page])
     @thank = Thank.new
