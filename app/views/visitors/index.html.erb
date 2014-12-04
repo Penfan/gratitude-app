@@ -8,7 +8,10 @@
       <p>Email: <%= @user.email if @user.email %></p>
       <p>Ministry: <%= @user.ministry if @user.ministry %></p>
       <p>Class: <%= @user.year if @user.year %></p>
+      <% else %>
+      <h3> Welcome to Gratitude App </h3>
       <% end %>
+
     </div>
     <div class="col-md-8">
     <% if user_signed_in? %>
