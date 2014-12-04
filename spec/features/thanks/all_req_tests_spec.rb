@@ -12,7 +12,7 @@ feature 'Visitors page' do
     # response.should be_success
   # end
 
-  scenario "should create thanks" do
+  scenario "should have new thanks" do
     @thank = Thank.new(:text => "FOOD AND STUFF")
     @thank.should be_an_instance_of Thank
   end
@@ -29,9 +29,9 @@ feature 'Visitors page' do
     expect{@user.destroy}.to change{User.count}.by(-1)
   end
 
-  scenario "renders the index template" do
-    get :index
-    expect(response).to render_template("index")
+  scenario "should create thanks" do
+    @thank = Thank.new(:text => "FOOD AND STUFF")
+    expect{@thank.save}.to change{Thank.count}.by(1)
   end
 
   
