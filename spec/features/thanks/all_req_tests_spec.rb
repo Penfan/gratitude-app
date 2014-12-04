@@ -31,7 +31,7 @@ feature 'Visitors page' do
     expect{@user.destroy}.to change{User.count}.by(-1)
   end
 
-  scenario '#create' do
+  scenario 'should have created a thanks' do
     @thank = Thank.create(:text => "Message")
     @thank.should be_an_instance_of Thank
   end
